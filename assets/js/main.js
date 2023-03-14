@@ -35,7 +35,19 @@ for (let i = 0; i < images.length; i++) {
     const imgEl = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
 
     console.log(imgEl)
+
+    imagesEl.innerHTML += imgEl;
+
+    const imgElement = document.createElement('img');
+    imgElement.setAttribute('src', imgSrc); 
     
 }
 
 
+
+//click
+
+const nextEl = document.querySelector('.next')
+nextEl.addEventListener('click', function(){
+    console.log('click next')
+})
