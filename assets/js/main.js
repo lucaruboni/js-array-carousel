@@ -24,6 +24,8 @@ console.log(images);
 
 let activeImage = 0 ;
 
+let slideImageEl = activeImage
+
 const imagesEl = document.querySelector('.slider > .images');
 console.log(imagesEl);
 
@@ -37,9 +39,7 @@ for (let i = 0; i < images.length; i++) {
     console.log(imgEl)
 
     imagesEl.innerHTML += imgEl;
-
-    const imgElement = document.createElement('img');
-    imgElement.setAttribute('src', imgSrc); 
+  
     
 }
 
@@ -50,4 +50,19 @@ for (let i = 0; i < images.length; i++) {
 const nextEl = document.querySelector('.next')
 nextEl.addEventListener('click', function(){
     console.log('click next')
+
+    console.log(slideImageEl)
+
+    const currentSlide = slideImageEl[activeImage]
+    console.log(currentSlide);
+
+    currentSlide.classList.remove('active')
+
+    activeImage++
+
+    console.log(activeImage)
+    const nextImage = slideImageEl[activeImage]
+
+    console.log(nextImage)
+    nextImage.classList.Add('active')
 })
