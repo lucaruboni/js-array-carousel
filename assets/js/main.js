@@ -74,9 +74,17 @@ nextEl.addEventListener('click', function(){
 
     currentSlide.classList.remove('active')
 
-    //incremento alla seconda immagine 
+    if (activeImage === slideImageEl.length - 1){
+        activeImage = 0
+    }
+
+    else{
+         //incremento alla seconda immagine 
 
     activeImage++
+    }
+
+   
 
     //seleziono l'immagine successiva
 
@@ -90,7 +98,7 @@ nextEl.addEventListener('click', function(){
 })
 
 
-//come con il tasto next però cambio i nomi delle var e faccio un decremento al posto dell'incremento
+//come con il tasto next però cambio i nomi delle var e faccio un decremento al posto dell'incremento                     
 
 
 const prevEl = document.querySelector('.prev')
@@ -104,7 +112,20 @@ prevEl.addEventListener('click', function(){
 
     currentSlide.classList.remove('active')
 
-    activeImage--
+    //se l'immagine attiva ha posizione della lista 0 
+    if(activeImage === 0){
+
+        //imposto active image come la length della lista di img completa -1
+
+        activeImage = slideImageEl.length - 1;
+    }
+    else {
+
+    //altrimenti decremento in questo modo si può tornare all prima immagine
+
+        activeImage--
+    }
+    
 
     console.log(activeImage)
     const prevImage = slideImageEl[activeImage]
